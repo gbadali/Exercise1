@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <title>Exercise 1</title>
+    <script>
+
+        // Add Two Numbers
+        function AddTwoNumbers() {
+            var n1 = document.getElementById("first").value;
+            var n2 = document.getElementById("second").value;
+            var result = Number(n1) + Number(n2);
+            console.log(result);
+            document.getElementById("result").value = result;
+        }
+        // Make me Breakfast
+        let steps = [
+            "start the air fryer",
+            "put the baccon in the air fryer",
+            "put the small pan on the stove",
+            "crack in 2 eggs",
+            ""
+        ]
+        
+    </script>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <div class="card">
+        <div class="card-body">
+            
+            <h1 class="display-1">Addition</h1>
+            <input type="number" id="first"> +
+            <input type="number" id="second">
+            <button type="button" id="calculate" onclick="AddTwoNumbers()">=</button>
+            <input type="number" id="result" readonly="true" class="disabled">
+            
+        </div>
+    </div>
+    <div class="card">
+        <h1 class="display-1">Steps to prepare my breakfast</h1>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button" id="breakfast" onclick="" class="btn btn-primary btn-lg">Make me breakfast</button>
+        </div>
+    </div>
+</body>
+</html>
