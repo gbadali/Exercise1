@@ -6,7 +6,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <title>Exercise 1</title>
+    
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="display-1">Addition</h1>
+                    <div class="input-group">
+                        <input type="number" id="first" class="form-control"> 
+                        <span class="input-group-text">+</span>
+                        <input type="number" id="second" class="form-control">
+                        <button type="button" id="calculate" onclick="AddTwoNumbers()">=</button>
+                        <input type="number" id="result" readonly class="form-control" class="disabled">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h1 class="display-1">Steps to prepare my breakfast</h1>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button id="breakfast" type="button" class="btn btn-primary btn-lg">Make me breakfast</button>
+                </div>
+                <div id="table-container" class="mt-4">
+        
+                </div>
+            </div>
+    </div>
     <script>
+        let table = document.querySelector("table");
 
         // Add Two Numbers
         function AddTwoNumbers() {
@@ -17,7 +45,7 @@
             document.getElementById("result").value = result;
         }
         // Make me Breakfast
-        let steps = [
+        const steps = [
             "start the air fryer",
             "put the baccon in the air fryer",
             "put the small pan on the stove",
@@ -25,30 +53,40 @@
             "crack in 2 eggs",
             "cook eggs to desired doneness",
             "put baccon and eggs on plate",
-            "eat breakfast"
+            "eat breakfast",
         ]
+
+        function MakeBreakfast(steps) {
+            const table = document.createElement("table");
+            table.className = "table"
+            const tableContainer = document.getElementById("table-container");
+
+            const headerRow = table.insertRow();
+            const headerCell0 = document.createElement("th");
+            headerCell0.textContent = "#";
+            headerRow.appendChild(headerCell0);
+            const headerCell1 = document.createElement("th");
+            headerCell1.textContent = "Steps";
+            headerRow.appendChild(headerCell1)
+
+            // Add the steps to the table
+            for (let i = 0; i < steps.length; i++) {
+                const row = table.insertRow();
+                const cell0 = row.insertCell(0);
+                const cell1 = row.insertCell(1);
+                cell0.textContent = i + 1;
+                cell1.textContent = steps[i];
+            }
+
+            tableContainer.innerHTML = ''; // Clear the container before adding a new table
+            tableContainer.appendChild(table);
+        }
+
+        const MakeBreakfastButton = document.getElementById("breakfast");
+        MakeBreakfastButton.addEventListener("click", function() {
+            MakeBreakfast(steps);
+        })
         
     </script>
-</head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-    <div class="card">
-        <div class="card-body">
-            
-            <h1 class="display-1">Addition</h1>
-            <input type="number" id="first"> +
-            <input type="number" id="second">
-            <button type="button" id="calculate" onclick="AddTwoNumbers()">=</button>
-            <input type="number" id="result" readonly="true" class="disabled">
-            
-        </div>
-    </div>
-    <div class="card">
-        <h1 class="display-1">Steps to prepare my breakfast</h1>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" id="breakfast" onclick="" class="btn btn-primary btn-lg">Make me breakfast</button>
-        </div>
-    </div>
 </body>
 </html>
